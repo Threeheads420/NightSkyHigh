@@ -1,0 +1,164 @@
+/* General Body Styling */
+body {
+    margin: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    font-family: Arial, sans-serif;
+    color: white;
+    position: relative;
+    min-height: 200vh; /* Ensure the page is scrollable */
+    background: linear-gradient(to bottom, #1a237e, #000);
+    animation: darkenBackground 10s infinite alternate; /* Animation for background */
+}
+.profile-container {
+  z-index: -1; /* Sends the profile picture behind all other elements */
+}
+
+
+/* Background Animation for Darkening */
+@keyframes darkenBackground {
+    0% {
+        background: linear-gradient(to bottom, #1a237e, #000);
+    }
+    100% {
+        background: linear-gradient(to bottom, #0d1137, #000);
+    }
+}
+
+/* Centered Content Styling */
+.content {
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 20px;
+    margin: 50px auto;
+    max-width: 800px;
+    background: rgba(0, 0, 0, 0.5); /* Subtle background for readability */
+    border-radius: 10px;
+    position: relative;
+    z-index: 1; /* Ensure it stays above the stars */
+}
+
+/* Floating Elements */
+.floating {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    pointer-events: none;
+    animation: float 20s linear infinite;
+    z-index: 9999;
+}
+
+/* Animation for Floating (Vertical Movement) */
+@keyframes float {
+    from {
+        transform: translateY(100vh) translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100vh) translateX(calc(100vw - 10vw));
+        opacity: 0;
+    }
+}
+
+/* Specific Floating Element Styles */
+.star {
+    background: url('https://upload.wikimedia.org/wikipedia/commons/9/95/Star_icon-2.png') no-repeat center;
+    background-size: contain;
+    animation: float 20s linear infinite;
+}
+
+.joint {
+    background: url('https://cdn-icons-png.flaticon.com/512/897/897244.png') no-repeat center;
+    background-size: contain;
+    animation: float 15s linear infinite;
+}
+
+/* Images */
+img {
+    max-width: 100%; /* Ensures images scale proportionally */
+    height: auto; /* Maintains aspect ratio */
+    display: block; /* Centers the images within containers */
+    margin: 0 auto;
+}
+
+/* Navigation Styling */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+nav a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #00ff00; /* Changes link color on hover */
+}
+
+body {
+    margin-top: 60px; /* Prevents overlap with navigation */
+}
+
+/* Title Styling */
+#title {
+    font-size: 3rem;
+    line-height: 1.5;
+}
+
+.highlight {
+    font-size: 6rem;
+    font-weight: bold;
+    color: #FF5733;
+    text-shadow: 0 0 10px #FF5733, 0 0 20px #FF5733, 0 0 30px #FF5733;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+    0%, 100% { text-shadow: 0 0 10px #FF5733, 0 0 20px #FF5733, 0 0 30px #FF5733; }
+    50% { text-shadow: 0 0 20px #FF6F61, 0 0 40px #FF6F61, 0 0 60px #FF6F61; }
+}
+
+/* Subtext */
+.subtext {
+    font-size: 2.5rem;
+    margin-top: 1rem;
+    color: #F4D03F;
+    text-shadow: 0 0 5px #F4D03F, 0 0 15px #F4D03F;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    img {
+        max-width: 80%; /* Scale down for tablets */
+    }
+
+    .highlight {
+        font-size: 4rem; /* Adjust text size */
+    }
+}
+
+@media (max-width: 480px) {
+    img {
+        max-width: 70%; /* Scale further for phones */
+    }
+
+    .highlight {
+        font-size: 3rem; /* Adjust text size */
+    }
+
+    .subtext {
+        font-size: 1.5rem; /* Adjust subtext size */
+    }
+}
