@@ -1,0 +1,174 @@
+/* NightSkyHigh – main stylesheet (nightsky.css) */
+
+/* ===== Base / Body ===== */
+body {
+  margin: 0;
+  overflow-x: hidden;            /* Prevent horizontal scrolling */
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+  position: relative;
+  min-height: 200vh;             /* Ensure the page is scrollable */
+  background: linear-gradient(to bottom, #1a237e, #000);
+  animation: darkenBackground 10s infinite alternate;
+  margin-top: 60px;              /* Prevent overlap with fixed nav */
+}
+
+/* If you have a container that should sit behind content */
+.profile-container { z-index: -1; }
+
+/* Background darkening animation */
+@keyframes darkenBackground {
+  0%   { background: linear-gradient(to bottom, #1a237e, #000); }
+  100% { background: linear-gradient(to bottom, #0d1137, #000); }
+}
+
+/* ===== Layout ===== */
+.content {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 20px;
+  margin: 50px auto;
+  max-width: 800px;
+  background: rgba(0, 0, 0, 0.5); /* Subtle background for readability */
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;                    /* Above floating elements */
+}
+
+/* ===== Floating bits (stars, joint) ===== */
+.floating {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
+  animation: float 20s linear infinite;
+  z-index: 9999;
+}
+
+@keyframes float {
+  from {
+    transform: translateY(100vh) translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100vh) translateX(calc(100vw - 10vw));
+    opacity: 0;
+  }
+}
+
+/* External icons are fine as-is */
+.star {
+  background: url("https://upload.wikimedia.org/wikipedia/commons/9/95/Star_icon-2.png") no-repeat center;
+  background-size: contain;
+  animation: float 20s linear infinite;
+}
+
+.joint {
+  background: url("https://cdn-icons-png.flaticon.com/512/897/897244.png") no-repeat center;
+  background-size: contain;
+  animation: float 15s linear infinite;
+}
+
+/* ===== Images ===== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ===== Navigation (fixed top) ===== */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  z-index: 1000;
+}
+
+nav a {
+  margin: 0 15px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover { color: #00ff00; }
+
+/* ===== Titles / Text effects ===== */
+#title { font-size: 3rem; line-height: 1.5; }
+
+.highlight {
+  font-size: 6rem;
+  font-weight: bold;
+  color: #FF5733;
+  text-shadow: 0 0 10px #FF5733, 0 0 20px #FF5733, 0 0 30px #FF5733;
+  animation: pulse 2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { text-shadow: 0 0 10px #FF5733, 0 0 20px #FF5733, 0 0 30px #FF5733; }
+  50%      { text-shadow: 0 0 20px #FF6F61, 0 0 40px #FF6F61, 0 0 60px #FF6F61; }
+}
+
+.subtext {
+  font-size: 2.5rem;
+  margin-top: 1rem;
+  color: #F4D03F;
+  text-shadow: 0 0 5px #F4D03F, 0 0 15px #F4D03F;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  body { padding: 10px; }
+  img { max-width: 80%; }
+  .highlight { font-size: 4rem; }
+}
+
+@media (max-width: 480px) {
+  img { max-width: 70%; }
+  .highlight { font-size: 3rem; }
+  .subtext { font-size: 1.5rem; }
+}
+
+/* Optional: reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+/* Mobile (default styles already fit small screens) */
+
+/* Tablets */
+@media (min-width: 600px) {
+  body {
+    font-size: 1.1em;
+  }
+  nav a {
+    padding: 12px 18px;
+  }
+}
+
+/* Laptops */
+@media (min-width: 992px) {
+  body {
+    font-size: 1.2em;
+  }
+  .content {
+    max-width: 900px;
+    margin: auto;
+  }
+}
+
+/* Large desktops */
+@media (min-width: 1200px) {
+  body {
+    font-size: 1.3em;
+  }
+  .content {
+    max-width: 1100px;
+  }
+}
