@@ -1,4 +1,37 @@
 /* NightSkyHigh – main stylesheet (nightsky.css) */
+/* === RESPONSIVE SAFETIES === */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden; /* stop sideways scroll on mobile */
+}
+
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+  display: block; /* prevents inline-gap issues */
+}
+
+iframe { max-width: 100%; }
+
+.container, .wrap, .page-width {
+  width: 100%;
+  max-width: 1200px;   /* optional cap for large screens */
+  margin: 0 auto;
+  padding: 0 16px;     /* mobile-safe side padding */
+}
+
+/* fluid text (optional, safe) */
+:root { --step: 1rem; }
+body { font-size: clamp(16px, 1rem + 0.3vw, 18px); }
+
+/* images/sections won’t break layout on small screens */
+section, article, header, footer, main, nav { min-width: 0; }
+
+/* utility for full-bleed banners if needed */
+.full-bleed { width: 100vw; margin-left: 50%; transform: translateX(-50%); }
 
 /* ===== Base / Body ===== */
 body {
