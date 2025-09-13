@@ -3,76 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Consistent Styled Page</title>
+  <title>A Personal Bloody Shopper</title>
 
+  <!-- Main site stylesheet -->
+  <link rel="stylesheet" href="../css/nightsky.css">
 
-  <!-- Site CSS (preferred) -->
-  <link rel="stylesheet" href="/css/nightsky.css" />
-
+  <!-- Minimal inline styles just for this page -->
   <style>
-    :root{
-      --bg1:#0d0d0d; --bg2:#1c1c1c; --bg3:#292929;
-      --accent:#00ff00; --accent-d:#00aa00;
-      --warm:#ff5733; --gold:#f4d03f; --text:#ffffff;
+    #fun-message {
+      text-align: center;
+      margin-top: 120px;
     }
 
-    /* Minimal page-specific styling */
-    *{margin:0;padding:0;box-sizing:border-box;}
-    body{
-      font-family: Arial, sans-serif;
-      color:var(--text);
-      text-align:center;
-      background: linear-gradient(45deg,var(--bg1),var(--bg2),var(--bg3));
-      background-size:300% 300%;
-      animation: gradientShift 15s ease infinite;
-      padding-top:80px;
-    }
-    @keyframes gradientShift{
-      0%{background-position:0% 50%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 50%}
-    }
-
-    nav{
-      position:fixed; top:0; left:0; width:100%;
-      background: rgba(0,0,0,.8);
-      display:flex; justify-content:center; align-items:center;
-      gap:.75rem; padding:10px 0; z-index:1000;
-      backdrop-filter: blur(4px);
-    }
-    nav a{
-      color:var(--accent);
-      text-decoration:none;
-      font-size:clamp(1rem,2.5vw,1.25rem);
-      padding:6px 10px;
-      border:2px solid var(--accent);
-      border-radius:6px;
-      background:rgba(0,0,0,.6);
-      transition:transform .15s ease, background .2s ease, color .2s ease, border-color .2s ease;
-    }
-    nav a:hover{ color:#000; background:var(--accent); border-color:#000; transform:translateY(-1px); }
-    nav a:visited{ color:var(--accent-d); }
-    nav a.active{ background:var(--accent); color:#000; border-color:#000; }
-
-    #title{ margin-top:20px; font-size:clamp(1.5rem,4vw,3rem); line-height:1.5; }
-    .highlight{
-      font-size:clamp(2.5rem,8vw,5rem);
-      font-weight:bold; color:var(--warm);
+    #fun-message .highlight {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #ff5733;
       text-shadow: 0 0 8px rgba(255,87,51,.6), 0 0 18px rgba(255,87,51,.4);
       animation: pulse 2s ease-in-out infinite;
     }
-    @keyframes pulse{
-      0%,100%{ text-shadow:0 0 8px rgba(255,87,51,.6), 0 0 18px rgba(255,87,51,.4) }
-      50%{ text-shadow:0 0 14px rgba(255,111,97,.7), 0 0 28px rgba(255,111,97,.5) }
-    }
-    .subtext{
-      font-size:clamp(1.25rem,4.5vw,2rem);
-      margin-top:1rem; color:var(--gold);
-      text-shadow:0 0 6px rgba(244,208,63,.5);
+
+    #fun-message .subtext {
+      font-size: 1.5rem;
+      color: #f4d03f;
+      text-shadow: 0 0 6px rgba(244,208,63,.5);
+      margin-top: .5rem;
     }
 
-    @media (max-width:480px){
-      nav{ gap:.5rem; }
+    @keyframes pulse {
+      0%,100% {
+        text-shadow: 0 0 8px rgba(255,87,51,.6), 0 0 18px rgba(255,87,51,.4);
+      }
+      50% {
+        text-shadow: 0 0 14px rgba(255,111,97,.7), 0 0 28px rgba(255,111,97,.5);
+      }
+    }
+
+    .nuke-wrap {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .nuke-img {
+      width: 85%;        /* makes it big but not too much */
+      max-width: 900px;  /* keeps it from going massive on big screens */
+      opacity: 0.95;     /* almost full strength */
     }
   </style>
 </head>
@@ -83,19 +57,22 @@
     <a href="pictures.html">Pictures</a>
     <a href="history.html">History</a>
     <a href="jokes.html">Jokes</a>
-      <a href="timetochill.html">TimeToChill</a>
+    <a href="timetochill.html">TimeToChill</a>
     <a href="links.html">Services</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-
-  <div id="title">
+  <div id="fun-message">
     <div>If you came here</div>
     <div>looking for a</div>
     <div>A Personal Bloody</div>
     <div class="highlight">SHOPPER</div>
     <div class="subtext">Your chauffeur took</div>
     <div class="subtext">a wrong turn.</div>
+
+    <div class="nuke-wrap">
+      <img src="../images/nuke.png" alt="Nuclear explosion" class="nuke-img">
+    </div>
   </div>
 </body>
 </html>
