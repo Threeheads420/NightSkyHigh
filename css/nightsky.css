@@ -205,3 +205,21 @@ nav a:hover { color: #00ff00; }
     max-width: 1100px;
   }
 }
+/* --- Mobile nav shrink --- */
+@media (max-width: 768px) {
+  header, .navbar, .topbar {
+    position: sticky; top: 0; z-index: 1000; min-height: 44px;
+  }
+  nav, .navbar, .menu {
+    display: flex; align-items: center; gap: 8px; flex-wrap: nowrap; overflow-x: auto;
+  }
+  nav a, .navbar a, .menu a, .nav-link {
+    font-size: 14px; padding: 8px 10px; line-height: 1.1; display: inline-block;
+  }
+  .logo, .site-title, header h1 {
+    font-size: 16px; margin: 0; padding: 6px 8px;
+  }
+  h1, h2 { margin-top: 8px; }
+  .hit-counter, a[href*="hitwebcounter"] { display: none !important; }
+}
+
